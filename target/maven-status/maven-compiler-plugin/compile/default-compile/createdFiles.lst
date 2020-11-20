@@ -1,0 +1,14 @@
+br\com\sankhya\view\BotaoView$2.class
+br\com\sankhya\view\BotaoView$3.class
+br\com\sankhya\Principal\Botao.class
+br\com\ConnUtils\SerialComunications.class
+br\com\sankhya\view\BotaoView$1.class
+br\com\ConnUtils\EncontradorPesos.class
+br\com\ConnUtils\PublicadorServidor.class
+br\com\ConnUtils\VerificadorDeBalanca$VerificadorDeBalancaHolder.class
+br\com\ConnUtils\VerificadorDeBalanca$1.class
+br\com\sankhya\view\BotaoView.class
+br\com\ConnUtils\IdentificadorDeSeriais$IdentificadorDeSeriaisHolder.class
+br\com\ConnUtils\VerificadorDeDigitos.class
+br\com\ConnUtils\IdentificadorDeSeriais.class
+br\com\ConnUtils\VerificadorDeBalanca.class
