@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ConnUtils;
+package br.com.sankhya.ConnUtils;
 
 import java.io.ObjectOutputStream;
 import java.math.BigDecimal;
@@ -32,29 +32,30 @@ public class PublicadorServidor {
         return INSTANCE;
     }
     
-    public  void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa) {
+    public  void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
 		    try {
 		      // Instancia o ServerSocket ouvindo a porta 12345
 		      ServerSocket servidor = new ServerSocket(12345);
-		      System.out.println("Servidor publicado na porta 12345");
-		      caixa.setText("Servidor publicado na porta "+Integer.toString(servidor.getLocalPort()));                  
-		      
-		      
+		      System.out.println("Servidor publicado na porta "+Integer.toString(servidor.getLocalPort()));           
+		      		      
 		      if(isAmbienteTeste){
 		      String bruta = "ST,GS,+00000040 KG"
 			      		+ "\nST,GS,+00000040 KG"
 			      		+ "\nST,GS,+00000040 KG"
 			      		+ "\nST,GS,+00000040 KG"
-			      		+ "\nST,GS,+0000S040 KG"
+			      		+ "\nST,GS,+00000040 KG"
 			      		+ "\nST,GS,+00000040 KG";
 		      
 		      List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(bruta);
+                      //System.out.println(pesos);
 		      for(BigDecimal peso: pesos) {
-		    	  System.out.println(peso);
-		    	  caixa.setText(caixa.getText()+"\nPeso Recebido:"+ peso.toString()+"\n");
+		    	  //System.out.println(peso);
+		    	  caixa.setText(caixa.getText()+"\nPeso Recebido: "+ peso.toString()+" KG\n");
 		      }
                           
-		    	  caixa.setText("Peso recebido:"+ bruta+"\n"+caixa.getText());		      
+		    	  //caixa.setText("Peso recebido:"+ bruta+"\n"+caixa.getText());
+                          caixa.setText(caixa.getText()+"\nServidor publicado na porta "+Integer.toString(servidor.getLocalPort()));
+                          caixa.setText(caixa.getText()+"\nPesos Recebidos pela porta "+comn);
 		      }
 		      
 		      while(true) {
@@ -67,6 +68,7 @@ public class PublicadorServidor {
 				double sorteiaNumero = random.nextDouble();
 				pesoReal =BigDecimal.valueOf(sorteiaNumero).multiply(BigDecimal.valueOf(1000.D));
 				pesoReal= pesoReal.setScale(2, RoundingMode.FLOOR);
+                                System.out.println("\n"+pesoReal);
 		        }
 			 	caixa.setText("Cliente conectado: " + cliente.getInetAddress().getHostAddress()+"\n"+caixa.getText());
 			 	//System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());

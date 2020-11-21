@@ -5,19 +5,16 @@
  */
 package br.com.sankhya.view;
 
-import br.com.ConnUtils.IdentificadorDeSeriais;
-import br.com.ConnUtils.VerificadorDeBalanca;
+
+import br.com.sankhya.ConnUtils.VerificadorDeBalanca;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
-import javax.swing.ComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
-import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
 import jssc.SerialPort;
@@ -35,26 +32,17 @@ public class BotaoView extends javax.swing.JFrame {
         Boolean isOpen=Boolean.FALSE;
 	Boolean isConectado=Boolean.FALSE;
 	SerialPort serialPort =null;
-	Boolean isAmbienteTeste=Boolean.TRUE;
+	private Boolean isAmbienteTeste=Boolean.TRUE;
         //JComboBox jcbCOM;
-        ArrayList<String> comns;
+        ImageIcon img = new ImageIcon("..\\Assets\\balancaIcon.png");
         
     
-    public BotaoView() {
-        
-        if(isAmbienteTeste){
-        comns = new ArrayList<String>();
-        comns.add("COM1");
-        comns.add("COM2");
-        comns.add("COM3");
-        comns.add("COM4");
-        }else{
-            comns = IdentificadorDeSeriais.getInstance().listarSeriais();
-        }
-        
+    public BotaoView() { 
+                
         initComponents();
-        this.setVisible(true);
-        //this.setExtendedState(this.MAXIMIZED_BOTH);caixa.setEditable(false); 
+        
+        //this.setExtendedState(this.MAXIMIZED_BOTH);
+        caixa.setEditable(false); 
         jb.setBounds(300, 300, 100, 60);
 	jb2.setBounds(400, 300, 100, 60);
 	sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); 
@@ -63,10 +51,14 @@ public class BotaoView extends javax.swing.JFrame {
 	caixa.setFont(new Font("Verdana", Font.BOLD, 16));
 	caixa.setMargin(new Insets(10,10,10,10));
 	caixa.setBounds(0, 10, 700, 600);
-	setSize(700,600);
+        this.setIconImage(img.getImage());
+	//setSize(700,600);
+        
+        
                 
         //this.jcbCOM = new JComboBox(comns.toArray());
        // jcbCOM.setVisible(true);
+       this.setVisible(true);
         
     }
 
@@ -84,10 +76,12 @@ public class BotaoView extends javax.swing.JFrame {
         caixa = new javax.swing.JTextArea();
         jb2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jcbCOM = new JComboBox(comns.toArray());
+        jcbCOM = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Leitor de Balança");
         setBackground(new java.awt.Color(102, 0, 102));
+        setIconImage(img.getImage());
 
         jb.setText("Conectar");
         jb.addActionListener(new java.awt.event.ActionListener() {
@@ -119,11 +113,11 @@ public class BotaoView extends javax.swing.JFrame {
                 .addComponent(jb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sp)
@@ -145,27 +139,34 @@ public class BotaoView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActionPerformed
-        
-			VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa);
-			
-			if(isConectado) {
+                        if(null != this.getJcbCOM().getSelectedItem()){
+			  VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa, this.getJcbCOM().getSelectedItem().toString());
+                          
+                          if(isConectado) {
 				jb.setText("Conectar");
 				isConectado=Boolean.FALSE;
                                 jcbCOM.setEnabled(true);
                                 jcbCOM.setEditable(true);
                                 //jcbCOM.setVisible(true);
                                 //this.jcbCOM.setOpaque(true);
-			}else {
+			    }else {
 				jb.setText("Desconectar");
 				isConectado=Boolean.TRUE;                                
                                 this.jcbCOM.setEnabled(false);
                                 this.jcbCOM.setEditable(false);
                                 //jcbCOM.setVisible(false);
                                // this.jcbCOM.setOpaque(false);
-			}			
+			    }
+                        }else{
+                            //("Sem Balança Conectada!!!").setVisible(true);                            
+                            new JOptionPane().showMessageDialog(new JFrame(),"Sem Balança Detectada!","Aviso",JOptionPane.WARNING_MESSAGE);
+                        }
+                        
+						
 		
     }//GEN-LAST:event_jbActionPerformed
 
@@ -173,7 +174,17 @@ public class BotaoView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jb2ActionPerformed
 
-        
+    public Boolean getIsAmbienteTeste() {
+        return isAmbienteTeste;
+    }
+
+    protected void setIsAmbienteTeste(Boolean isAmbienteTeste) {
+        this.isAmbienteTeste = isAmbienteTeste;
+    }
+
+    public JComboBox<String> getJcbCOM() {
+        return jcbCOM;
+    }            
     
     /**
      * @param args the command line arguments

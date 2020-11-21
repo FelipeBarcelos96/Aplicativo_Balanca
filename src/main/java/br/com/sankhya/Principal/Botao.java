@@ -6,6 +6,7 @@
 package br.com.sankhya.Principal;
 
 import br.com.sankhya.view.BotaoView;
+import br.com.sankhya.view.TesteDialog;
 
 /**
  *
@@ -17,7 +18,9 @@ public class Botao {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new BotaoView().setVisible(true);
+        BotaoView frame = new BotaoView();
+        new TesteDialog(frame, true).setVisible(true);
+        frame.setVisible(true);
     }
     
 }

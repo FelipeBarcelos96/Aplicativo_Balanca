@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.sankhya</groupId>
     <artifactId>Aplicativo_Balanca</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.7</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,5 +27,24 @@
            <version>2.8.0</version>
          </dependency>
 
-    </dependencies>    
-    </project>
+    </dependencies>
+    <name>Balança</name>
+    
+    <build>
+     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>br.com.sankhya.Principal.Botao</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+     </plugins>
+    </build>
+    
+</project>

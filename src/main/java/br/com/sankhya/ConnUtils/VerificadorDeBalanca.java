@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ConnUtils;
+package br.com.sankhya.ConnUtils;
 
 import javax.swing.JTextArea;
 
@@ -25,11 +25,11 @@ public class VerificadorDeBalanca {
         private static final VerificadorDeBalanca INSTANCE = new VerificadorDeBalanca();
     }
     
-    public void verificarBalanca(Boolean isAmbienteTeste, JTextArea caixa) {
+    public void verificarBalanca(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
 		
 		new Thread(new Runnable() { 
 			@Override public void run() { 
-				PublicadorServidor.getInstance().publicaServidor(isAmbienteTeste, caixa);
+				PublicadorServidor.getInstance().publicaServidor(isAmbienteTeste, caixa, comn);
 				//consutaSerial();
 			} }).start();
 		

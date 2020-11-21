@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.ConnUtils;
+package br.com.sankhya.ConnUtils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -30,7 +30,8 @@ public class EncontradorPesos {
     
     public List<BigDecimal> pesosEncontrados(String bruta){
 	
-    int inicio; int fim;
+    int inicio; 
+    int fim;
     
   
     List<BigDecimal> pesos = new ArrayList<BigDecimal>();
@@ -42,10 +43,10 @@ public class EncontradorPesos {
     int i = 0;
     for(String linha:array) {
     	
-    	if(linha.contains("G") && linha.contains("k")) {
+    	if(linha.contains("G") && linha.contains("K")) {
   	   i++;
-  	  inicio = linha.indexOf("G");
-	      fim = linha.lastIndexOf("k");
+  	      inicio = linha.indexOf("G");
+	      fim = linha.lastIndexOf("K");
 	      
 	      System.out.println("inicio divisao string");
 	      
@@ -56,7 +57,7 @@ public class EncontradorPesos {
 	      if(VerificadorDeDigitos.getInstance().isDigit(pedacao)) {
 	    	  pesos.add(new BigDecimal(pedacao));
 	      }else {
-	    	  System.out.println("N�o numero");
+	    	  System.out.println("Não numero");
 	      }
     	}
     }
