@@ -89,7 +89,7 @@ public class SerialComunications {
     public int read(SerialPort serialPort) throws IOException {
 	    while (true) {
 	      try {
-	        if (serialPort.isOpened())
+	        if (!serialPort.isOpened())
 	          return -1;
 	        return serialPort.readBytes(1, 100)[0];
 	      } catch (final SerialPortTimeoutException e) {

@@ -37,7 +37,7 @@ public class IdentificadorDeSeriais {
         SerialPort serialPort;
           for(int i=0; i<20; i++){
             serialPort = new SerialPort("COM"+Integer.toString(i+1));
-            if(serialPort.isOpened()){
+            if(!serialPort.isOpened()){
                 seriais.add("COM"+Integer.toString(i+1));
             }
           }
