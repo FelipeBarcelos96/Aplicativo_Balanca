@@ -143,9 +143,7 @@ public class BotaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActionPerformed
-                        if(null != this.getJcbCOM().getSelectedItem()){
-			  VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa, this.getJcbCOM().getSelectedItem().toString());
-                          
+                                                  
                           if(isConectado) {
 				jb.setText("Conectar");
 				isConectado=Boolean.FALSE;
@@ -160,10 +158,13 @@ public class BotaoView extends javax.swing.JFrame {
                                 this.jcbCOM.setEditable(false);
                                 //jcbCOM.setVisible(false);
                                // this.jcbCOM.setOpaque(false);
-			    }
-                        }else{
+                               
+                               if(null != this.getJcbCOM().getSelectedItem()){
+			        VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa, this.getJcbCOM().getSelectedItem().toString());
+                                 }else{
                             //("Sem Balança Conectada!!!").setVisible(true);                            
-                            new JOptionPane().showMessageDialog(new JFrame(),"Sem Balança Detectada!","Aviso",JOptionPane.WARNING_MESSAGE);
+                              new JOptionPane().showMessageDialog(new JFrame(),"Sem Balança Detectada!","Aviso",JOptionPane.WARNING_MESSAGE);
+			    }                       
                         }
                         
 						

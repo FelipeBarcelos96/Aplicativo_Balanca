@@ -28,13 +28,13 @@ public class SerialComunications {
         return INSTANCE;
     }
     
-    public String consutaSerial() {
+    public String consutaSerial(String comn) {
 		
 		 String msgDecode = null;
 		 
 		 if(true) {                     
 		 SerialPort serialPort =null;
-		 serialPort = new SerialPort("COM1");
+		 serialPort = new SerialPort(comn);
                  
 	        try {
 				

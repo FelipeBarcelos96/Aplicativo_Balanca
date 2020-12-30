@@ -82,7 +82,7 @@ public class PublicadorServidor {
 		        else
 		        {
 		        	 //System.out.println("Ir� consultar");
-		            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial());
+		            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn));
 				      for(BigDecimal peso: pesos) {
 				    	  System.out.println(peso);
 				    	  caixa.setText("Peso recebido:"+ peso.toString()+"\n"+caixa.getText());
@@ -95,6 +95,7 @@ public class PublicadorServidor {
 		        
 		        saida.close();
 		        cliente.close();
+                        servidor.close();
 		      }  
 		    }   
 		    catch(Exception e) {
