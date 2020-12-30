@@ -7,6 +7,9 @@ package br.com.sankhya.view;
 
 import br.com.sankhya.SwingUtils.ManipuladorDeComboBox;
 import br.com.sankhya.ConnUtils.IdentificadorDeSeriais;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -97,8 +100,9 @@ public class TesteDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_simButtonActionPerformed
 
     private void naoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naoButtonActionPerformed
-        pai.setIsAmbienteTeste(false);
-        ManipuladorDeComboBox.getInstance().listaItens(IdentificadorDeSeriais.getInstance().listarSeriais(false), pai.getJcbCOM()); 
+        pai.setIsAmbienteTeste(false);      
+        ArrayList<String> seriais = IdentificadorDeSeriais.getInstance().listarSeriais(false);        
+        ManipuladorDeComboBox.getInstance().listaItens(seriais, pai.getJcbCOM());
         this.dispose();
     }//GEN-LAST:event_naoButtonActionPerformed
 

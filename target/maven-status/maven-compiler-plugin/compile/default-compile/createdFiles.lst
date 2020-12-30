@@ -8,6 +8,7 @@ br\com\sankhya\view\TesteDialog$3.class
 br\com\sankhya\Principal\Botao.class
 br\com\sankhya\ConnUtils\EncontradorPesos.class
 br\com\sankhya\ConnUtils\VerificadorDeBalanca$VerificadorDeBalancaHolder.class
+br\com\sankhya\Principal\TesteSeriaisAbertos.class
 br\com\sankhya\view\BotaoView$1.class
 br\com\sankhya\view\TesteDialog$1.class
 br\com\sankhya\ConnUtils\VerificadorDeDigitos.class

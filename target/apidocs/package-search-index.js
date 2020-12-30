@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"br.com.sankhya.ConnUtils"},{"l":"br.com.sankhya.Principal"},{"l":"br.com.sankhya.SwingUtils"},{"l":"br.com.sankhya.view"}]

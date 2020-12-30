@@ -6,6 +6,8 @@
 package br.com.sankhya.ConnUtils;
 
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import jssc.SerialPort;
 
 /**
@@ -28,20 +30,33 @@ public class IdentificadorDeSeriais {
     
     public ArrayList<String> listarSeriais(Boolean isAmbienteTeste){
         ArrayList<String> seriais = new ArrayList<String>();
+        
         if(isAmbienteTeste){
         seriais.add("COM1");
         seriais.add("COM2");
         seriais.add("COM3");
         seriais.add("COM4");
+        seriais.add("COM5");
         }else{
+            
         SerialPort serialPort;
-          for(int i=0; i<20; i++){
-            serialPort = new SerialPort("COM"+Integer.toString(i+1));
-            if(!serialPort.isOpened()){
+        String porta;
+        
+          for(int i=0; i<10; i++){
+            
+            porta = "COM"+Integer.toString(i+1);
+            //new JOptionPane().showMessageDialog(new JFrame(),"DEBUG!","Aviso",JOptionPane.WARNING_MESSAGE);
+            serialPort = new SerialPort(porta);
+            
+            if(serialPort.isOpened()){
                 seriais.add("COM"+Integer.toString(i+1));
             }
           }
-        }  
+        }
+        
+        if(seriais.isEmpty())
+            new JOptionPane().showMessageDialog(new JFrame(),"Sem Balança Detectada!","Aviso",JOptionPane.WARNING_MESSAGE);
+        
         return seriais;
     }
 }
