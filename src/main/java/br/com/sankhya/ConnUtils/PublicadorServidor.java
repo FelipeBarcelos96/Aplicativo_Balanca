@@ -22,7 +22,7 @@ public final class PublicadorServidor {
     
     private static ServerSocket servidor;
         
-    public static void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
+    public static void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa, String comn, String balanca) {
 		    try {
 		      // Instancia o ServerSocket ouvindo a porta 12345
                       if(null == servidor)
@@ -38,7 +38,7 @@ public final class PublicadorServidor {
 			      		+ "\nST,GS,+00000040 KG"
 			      		+ "\nST,GS,+00000040 KG";
 		      
-		      List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(bruta);
+		      List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(bruta, balanca);
                       //System.out.println(pesos);
 		      for(BigDecimal peso: pesos) {
 		    	  //System.out.println(peso);
@@ -74,7 +74,7 @@ public final class PublicadorServidor {
 		        else
 		        {
 		        	 //System.out.println("Ir� consultar");
-		            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn));
+		            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn), balanca);
 				      for(BigDecimal peso: pesos) {
 				    	  System.out.println(peso);
 				    	  caixa.setText("Peso recebido:"+ peso.toString()+"\n"+caixa.getText());
@@ -87,7 +87,7 @@ public final class PublicadorServidor {
 		        
 		        saida.close();
 		        cliente.close();
-                        servidor.close();
+                        //servidor.close();
 		      }  
 		    }   
 		    catch(Exception e) {

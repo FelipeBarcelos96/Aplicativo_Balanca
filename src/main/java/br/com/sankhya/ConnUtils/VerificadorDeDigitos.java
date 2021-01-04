@@ -24,7 +24,7 @@ public class VerificadorDeDigitos {
         return INSTANCE;
     }
     
-    boolean isDigit(String s) {
+    public boolean isDigit(String s) {
 	     for (int i = 0; i < s.length(); i++) {
 	           char ch = s.charAt(i);
 	           if (ch < 48 || ch > 57)

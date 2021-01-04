@@ -48,9 +48,19 @@ public class IdentificadorDeSeriais {
             //new JOptionPane().showMessageDialog(new JFrame(),"DEBUG!","Aviso",JOptionPane.WARNING_MESSAGE);
             serialPort = new SerialPort(porta);
             
+            /*
+            try{
+                serialPort.openPort();
+                seriais.add(porta);
+            }catch(Exception e){
+                
+            }
+            */            
+            
             if(!serialPort.isOpened()){
                 seriais.add("COM"+Integer.toString(i+1));
             }
+            
           }
         }
         

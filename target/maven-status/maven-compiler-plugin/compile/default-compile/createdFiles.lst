@@ -5,9 +5,12 @@ br\com\sankhya\Principal\Botao.class
 br\com\sankhya\Principal\TesteSeriaisAbertos.class
 br\com\sankhya\view\BotaoView$1.class
 br\com\sankhya\view\TesteDialog.class
+br\com\sankhya\control\PainelControle.class
 br\com\sankhya\SwingUtils\ManipuladorDeComboBox.class
 br\com\sankhya\ConnUtils\SerialComunications.class
+br\com\sankhya\view\BotaoView$4.class
 br\com\sankhya\view\BotaoView$2.class
+br\com\sankhya\control\IdentificadorLayoutChain.class
 br\com\sankhya\ConnUtils\IdentificadorDeSeriais$IdentificadorDeSeriaisHolder.class
 br\com\sankhya\ConnUtils\PublicadorServidor.class
 br\com\sankhya\view\TesteDialog$3.class

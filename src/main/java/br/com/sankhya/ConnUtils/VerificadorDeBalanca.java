@@ -25,11 +25,11 @@ public class VerificadorDeBalanca {
         private static final VerificadorDeBalanca INSTANCE = new VerificadorDeBalanca();
     }
     
-    public void verificarBalanca(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
+    public void verificarBalanca(Boolean isAmbienteTeste, JTextArea caixa, String comn, String balanca) {
 		
 		new Thread(new Runnable() { 
 			@Override public void run() { 
-				PublicadorServidor.publicaServidor(isAmbienteTeste, caixa, comn);
+				PublicadorServidor.publicaServidor(isAmbienteTeste, caixa, comn, balanca);
 				//consutaSerial();
 			} }).start();
 		

@@ -7,6 +7,7 @@ package br.com.sankhya.view;
 
 
 import br.com.sankhya.ConnUtils.VerificadorDeBalanca;
+import br.com.sankhya.control.PainelControle;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
@@ -35,6 +36,7 @@ public class BotaoView extends javax.swing.JFrame {
 	private Boolean isAmbienteTeste=Boolean.TRUE;
         //JComboBox jcbCOM;
         ImageIcon img = new ImageIcon("..\\Assets\\balancaIcon.png");
+        PainelControle controle;
         
     
     public BotaoView() { 
@@ -53,6 +55,7 @@ public class BotaoView extends javax.swing.JFrame {
 	caixa.setBounds(0, 10, 700, 600);
         this.setIconImage(img.getImage());
 	//setSize(700,600);
+        this.controle = new PainelControle(this);
         
         
                 
@@ -75,8 +78,10 @@ public class BotaoView extends javax.swing.JFrame {
         sp = new javax.swing.JScrollPane();
         caixa = new javax.swing.JTextArea();
         jb2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        serialLabel = new javax.swing.JLabel();
         jcbCOM = new javax.swing.JComboBox<>();
+        balancaLabel = new javax.swing.JLabel();
+        balancaComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Leitor de Balança");
@@ -101,40 +106,58 @@ public class BotaoView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        jLabel1.setText("Porta Serial:");
+        serialLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        serialLabel.setText("Porta Serial:");
+
+        jcbCOM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        balancaLabel.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        balancaLabel.setText("Balança:");
+
+        balancaComboBox.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        balancaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Marca", "Toledo 8540", "Toledo 820" }));
+        balancaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                balancaComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sp)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sp, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 45, Short.MAX_VALUE)
+                        .addComponent(jb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(serialLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(balancaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(balancaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serialLabel)
+                    .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(balancaLabel)
+                    .addComponent(balancaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -160,7 +183,7 @@ public class BotaoView extends javax.swing.JFrame {
                                // this.jcbCOM.setOpaque(false);
                                
                                if(null != this.getJcbCOM().getSelectedItem()){
-			        VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa, this.getJcbCOM().getSelectedItem().toString());
+			        VerificadorDeBalanca.getInstance().verificarBalanca(isAmbienteTeste, caixa, this.getJcbCOM().getSelectedItem().toString(), this.getBalancaComboBox().getSelectedItem().toString());
                                  }else{
                             //("Sem Balança Conectada!!!").setVisible(true);                            
                               new JOptionPane().showMessageDialog(new JFrame(),"Sem Balança Detectada!","Aviso",JOptionPane.WARNING_MESSAGE);
@@ -175,6 +198,10 @@ public class BotaoView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jb2ActionPerformed
 
+    private void balancaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balancaComboBoxActionPerformed
+        this.controle.setBalanca(this.balancaComboBox.getSelectedItem().toString());
+    }//GEN-LAST:event_balancaComboBoxActionPerformed
+
     public Boolean getIsAmbienteTeste() {
         return isAmbienteTeste;
     }
@@ -185,7 +212,17 @@ public class BotaoView extends javax.swing.JFrame {
 
     public JComboBox<String> getJcbCOM() {
         return jcbCOM;
-    }            
+    }
+
+    public JComboBox<String> getBalancaComboBox() {
+        return balancaComboBox;
+    }    
+
+    public PainelControle getControle() {
+        return controle;
+    }
+    
+    
     
     /**
      * @param args the command line arguments
@@ -226,11 +263,13 @@ public class BotaoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> balancaComboBox;
+    private javax.swing.JLabel balancaLabel;
     private javax.swing.JTextArea caixa;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jb;
     private javax.swing.JButton jb2;
     private javax.swing.JComboBox<String> jcbCOM;
+    private javax.swing.JLabel serialLabel;
     private javax.swing.JScrollPane sp;
     // End of variables declaration//GEN-END:variables
 }

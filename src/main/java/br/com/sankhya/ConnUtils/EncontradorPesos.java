@@ -5,6 +5,7 @@
  */
 package br.com.sankhya.ConnUtils;
 
+import br.com.sankhya.control.IdentificadorLayoutChain;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,40 +29,10 @@ public class EncontradorPesos {
         return INSTANCE;
     }
     
-    public List<BigDecimal> pesosEncontrados(String bruta){
+    public List<BigDecimal> pesosEncontrados(String bruta, String balanca){
 	
-    int inicio; 
-    int fim;
     
-  
-    List<BigDecimal> pesos = new ArrayList<BigDecimal>();
- 
-    String linhas = bruta;
-    String array[] = new String[100];
-
-    array = linhas.split("\n");
-    int i = 0;
-    for(String linha:array) {
-    	
-    	if(linha.contains("G") && linha.contains("K")) {
-  	   i++;
-  	      inicio = linha.indexOf("G");
-	      fim = linha.lastIndexOf("K");
-	      
-	      System.out.println("inicio divisao string");
-	      
-	      String pedacao= linha.substring(inicio + 4, fim-2);
-	      System.out.println("fim divisao string");
-	      System.out.print(pedacao);
-	      
-	      if(VerificadorDeDigitos.getInstance().isDigit(pedacao)) {
-	    	  pesos.add(new BigDecimal(pedacao));
-	      }else {
-	    	  System.out.println("Não numero");
-	      }
-    	}
-    }
 	
-	return pesos;
+	return IdentificadorLayoutChain.IdentificaLayout(balanca, bruta);
 }
 }
