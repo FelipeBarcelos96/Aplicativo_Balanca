@@ -171,14 +171,14 @@ public class BotaoView extends javax.swing.JFrame {
 				jb.setText("Conectar");
 				isConectado=Boolean.FALSE;
                                 jcbCOM.setEnabled(true);
-                                jcbCOM.setEditable(true);
+                              //  jcbCOM.setEditable(true);
                                 //jcbCOM.setVisible(true);
                                 //this.jcbCOM.setOpaque(true);
 			    }else {
 				jb.setText("Desconectar");
 				isConectado=Boolean.TRUE;                                
                                 this.jcbCOM.setEnabled(false);
-                                this.jcbCOM.setEditable(false);
+                              //  this.jcbCOM.setEditable(false);
                                 //jcbCOM.setVisible(false);
                                // this.jcbCOM.setOpaque(false);
                                
