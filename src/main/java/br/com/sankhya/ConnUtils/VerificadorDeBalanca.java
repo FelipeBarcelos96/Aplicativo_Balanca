@@ -29,7 +29,7 @@ public class VerificadorDeBalanca {
 		
 		new Thread(new Runnable() { 
 			@Override public void run() { 
-				PublicadorServidor.getInstance().publicaServidor(isAmbienteTeste, caixa, comn);
+				PublicadorServidor.publicaServidor(isAmbienteTeste, caixa, comn);
 				//consutaSerial();
 			} }).start();
 		

@@ -18,24 +18,16 @@ import javax.swing.JTextArea;
  *
  * @author felip
  */
-public class PublicadorServidor {
+public final class PublicadorServidor {
     
-    private static PublicadorServidor INSTANCE;    
-    
-    private void PublicadorServidor(){
+    private static ServerSocket servidor;
         
-    }    
-    
-    public static PublicadorServidor getInstance(){
-        if(INSTANCE == null)
-            INSTANCE = new PublicadorServidor();        
-        return INSTANCE;
-    }
-    
-    public  void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
+    public static void publicaServidor(Boolean isAmbienteTeste, JTextArea caixa, String comn) {
 		    try {
 		      // Instancia o ServerSocket ouvindo a porta 12345
-		      ServerSocket servidor = new ServerSocket(12345);
+                      if(null == servidor)
+		       servidor = new ServerSocket(12345);
+                      
 		      System.out.println("Servidor publicado na porta "+Integer.toString(servidor.getLocalPort()));           
 		      		      
 		      if(isAmbienteTeste){
