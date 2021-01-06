@@ -5,6 +5,7 @@ br\com\sankhya\Principal\Botao.class
 br\com\sankhya\Principal\TesteSeriaisAbertos.class
 br\com\sankhya\view\BotaoView$1.class
 br\com\sankhya\view\TesteDialog.class
+br\com\sankhya\view\TestIconJFrame$1.class
 br\com\sankhya\control\PainelControle.class
 br\com\sankhya\SwingUtils\ManipuladorDeComboBox.class
 br\com\sankhya\ConnUtils\SerialComunications.class
@@ -22,4 +23,5 @@ br\com\sankhya\view\TesteDialog$3$1.class
 br\com\sankhya\SwingUtils\ManipuladorDeComboBox$ManipuladorDeComboBoxHolder.class
 br\com\sankhya\view\BotaoView.class
 br\com\sankhya\ConnUtils\VerificadorDeBalanca.class
+br\com\sankhya\view\TestIconJFrame.class
 br\com\sankhya\ConnUtils\IdentificadorDeSeriais.class

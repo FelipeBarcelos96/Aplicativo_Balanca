@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\target\Balança v1.jar</jar>
+  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\target\Balança 1.1.jar</jar>
   <outfile>C:\Users\felip\Desktop\Balança\Balança.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
@@ -13,7 +13,7 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\felip\Downloads\scales_38922.ico</icon>
+  <icon>C:\Users\felip\Downloads\icon-marcaambiental-balanca.ico</icon>
   <classPath>
     <mainClass>br.com.sankhya.Principal.Botao</mainClass>
     <cp>.</cp>

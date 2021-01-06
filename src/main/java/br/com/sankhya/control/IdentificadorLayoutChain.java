@@ -55,8 +55,50 @@ public final class IdentificadorLayoutChain {
 			}
 			return pesos;
 		}else if(balanca == "Toledo 8540") {
-			new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);
-			return null; 
+			//new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);
+			
+			array = linhas.split("\n");
+				int i = 0;
+				for(String linha:array) {
+
+					if(linha.contains("i") && (!linha.contains("v") && !linha.contains("w") && !linha.contains("u") )) {
+						i++;
+						inicio = 0;
+						fim = linha.indexOf("i");
+
+						System.out.println("inicio divisao string");
+
+						String pedacao= linha.substring(inicio, fim-6);
+						System.out.println("fim divisao string");
+						System.out.print(pedacao);
+
+						if(VerificadorDeDigitos.getInstance().isDigit(pedacao)) {
+							pesos.add(new BigDecimal(pedacao));
+						}else {
+							System.out.println("Não numero");
+							pesos.add(new BigDecimal(-1));
+						}
+					}
+					
+					if(linha.contains("i") && (linha.contains("v") || linha.contains("w") || linha.contains("u"))) {
+						i++;
+						inicio = 0;
+						fim = VerificadorDeDigitos.getInstance().ultimoDigito(linha);
+
+						System.out.println("inicio divisao string");
+
+						String pedacao= linha.substring(inicio, fim-6);
+						System.out.println("fim divisao string");
+						System.out.print(pedacao);
+
+						if(VerificadorDeDigitos.getInstance().isDigit(pedacao)) {
+							pesos.add(new BigDecimal(pedacao));
+						}else {
+							System.out.println("Não numero");
+						}
+					}
+				}
+				return pesos;			
 		}else if(balanca == "Toledo 820") {
 			new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);
 			return null; 

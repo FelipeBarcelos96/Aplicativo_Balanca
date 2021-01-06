@@ -11,6 +11,7 @@ import br.com.sankhya.control.PainelControle;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -35,7 +36,8 @@ public class BotaoView extends javax.swing.JFrame {
 	SerialPort serialPort =null;
 	private Boolean isAmbienteTeste=Boolean.TRUE;
         //JComboBox jcbCOM;
-        ImageIcon img = new ImageIcon("..\\Assets\\balancaIcon.png");
+        ImageIcon img = new ImageIcon("BalancaIcone.ico");
+        
         PainelControle controle;
         
     
@@ -56,7 +58,7 @@ public class BotaoView extends javax.swing.JFrame {
         this.setIconImage(img.getImage());
 	//setSize(700,600);
         this.controle = new PainelControle(this);
-        
+        setIcon();
         
                 
         //this.jcbCOM = new JComboBox(comns.toArray());
@@ -272,4 +274,8 @@ public class BotaoView extends javax.swing.JFrame {
     private javax.swing.JLabel serialLabel;
     private javax.swing.JScrollPane sp;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\felip\\Documents\\NetBeansProjects\\Aplicativo_Balanca\\src\\main\\java\\br\\com\\sankhya\\view\\BalancaIcone.png"));
+    }
 }

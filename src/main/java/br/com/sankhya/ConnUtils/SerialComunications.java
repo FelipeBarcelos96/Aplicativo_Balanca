@@ -28,7 +28,7 @@ public class SerialComunications {
         return INSTANCE;
     }
     
-    public String consutaSerial(String comn) {
+    public String consutaSerial(String comn, String balanca) {
 		
 		 String msgDecode = null;
 		 
@@ -47,10 +47,17 @@ public class SerialComunications {
 			        
 			        System.out.println("\n ReadBytes");
 				     
+			        if(balanca == "Marca"){  
 			        serialPort.setParams(
 			        		SerialPort.BAUDRATE_9600,
 			        		SerialPort.DATABITS_8, 
 			        		1, 0);//Set params.
+			        }else if(balanca == "Toledo 8540") {
+			        	serialPort.setParams(
+				        		SerialPort.BAUDRATE_4800,
+				        		SerialPort.DATABITS_7, 
+				        		1, 0);//Set params.
+			        }
 			        
 			        byte[] buffer = null;
 			        
