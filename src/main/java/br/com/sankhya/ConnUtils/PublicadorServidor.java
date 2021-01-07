@@ -12,6 +12,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.util.Random;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -44,12 +47,13 @@ public final class PublicadorServidor {
 		    				  + "\nST,GS,+00000040 KG";     	    	  
 
 		    	  }else if(balanca == "Toledo 8540") {
-		    		   bruta = "00130000000i0"
+		    		   /*bruta = "00130000000i0"
 		    				  + "\n00130000000i0"
 		    				  + "\n00130000000i0"
 		    				  + "\n15390000000vi0"
 		    				  + "\n15390000000wi0"
-		    				  + "\n15390000000ui0";		 
+		    				  + "\n15390000000zi0";	*/
+		    		  bruta = "i0 14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14900000000zi0  14910000000yi0  14920000000xi0  14940000000vi0  14960000000ti0  14980000000ri0  15000000000i0  15020000000i0  15030000000i0  15050000000}i0  15060000000|i0  15070000000{i0  15070000000{i0  15080000000zi0  15080000000zi0  15080000000zi0  15080000000z";
 		    	  }else{
 		    		   bruta = "ST,GS,+00000040 KG"
 		    				  + "\nST,GS,+00000040 KG"
@@ -63,10 +67,11 @@ public final class PublicadorServidor {
                       //System.out.println(pesos);
 		      for(BigDecimal peso: pesos) {
 		    	  //System.out.println(peso);
-		    	  if(peso.toString() == "-1")
+		    	  if(peso == new BigDecimal(-1)) {
 		    		  caixa.setText(caixa.getText()+"\nEntrada Inválida\n");
-		    	  else
+		    	  }else {
 		    	  caixa.setText(caixa.getText()+"\nPeso Recebido: "+ peso.toString()+" KG\n");
+		    	  }
 		      }
                           
 		    	  //caixa.setText("Peso recebido:"+ bruta+"\n"+caixa.getText());
@@ -86,6 +91,15 @@ public final class PublicadorServidor {
 				pesoReal= pesoReal.setScale(2, RoundingMode.FLOOR);
                                 System.out.println("\n"+pesoReal);
 		        }
+		        
+	            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn,balanca), balanca);
+			      for(BigDecimal peso: pesos) {
+			    	  System.out.println(peso);
+			    	  caixa.setText("Peso recebido:"+ peso.toString()+" KG\n"+caixa.getText());
+			      }
+                  caixa.setText(caixa.getText()+"\nServidor publicado na porta "+Integer.toString(servidor.getLocalPort()));
+                  caixa.setText(caixa.getText()+"\nPesos Recebidos pela porta "+comn);
+		        
 			 	caixa.setText("Cliente conectado: " + cliente.getInetAddress().getHostAddress()+"\n"+caixa.getText());
 			 	//System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
 		        
@@ -97,15 +111,7 @@ public final class PublicadorServidor {
 		        	 saida.writeObject(pesoReal.toString());
 		        else
 		        {
-		        	 //System.out.println("Ir� consultar");
-		            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn,balanca), balanca);
-				      for(BigDecimal peso: pesos) {
-				    	  System.out.println(peso);
-				    	  caixa.setText("Peso recebido:"+ peso.toString()+" KG\n"+caixa.getText());
-				      }
-                      caixa.setText(caixa.getText()+"\nServidor publicado na porta "+Integer.toString(servidor.getLocalPort()));
-                      caixa.setText(caixa.getText()+"\nPesos Recebidos pela porta "+comn);
-				      
+		        	//System.out.println("Ir� consultar"); 
 		        saida.writeObject(pesos.get(0).toString());
 		        }
 		       
@@ -118,6 +124,7 @@ public final class PublicadorServidor {
 		    }   
 		    catch(Exception e) {
 		       System.out.println("Erro: " + e.getMessage());
+		       new JOptionPane().showMessageDialog(new JFrame(),"Erro: " + e.getMessage(),"Erro",JOptionPane.WARNING_MESSAGE);
 		    }
 		    finally {
 		    	

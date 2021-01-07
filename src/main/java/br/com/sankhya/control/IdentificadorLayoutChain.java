@@ -57,14 +57,14 @@ public final class IdentificadorLayoutChain {
 		}else if(balanca == "Toledo 8540") {
 			//new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);
 			
-			array = linhas.split("\n");
+			array = linhas.split(" ");
 				int i = 0;
 				for(String linha:array) {
 
-					if(linha.contains("i") && (!linha.contains("v") && !linha.contains("w") && !linha.contains("u") )) {
+					if(linha.contains("i") && linha.length() > 6/* && (!linha.contains("v") && !linha.contains("w") && !linha.contains("u") )*/) {
 						i++;
 						inicio = 0;
-						fim = linha.indexOf("i");
+						fim = VerificadorDeDigitos.getInstance().ultimoDigito(linha);//linha.indexOf("i");
 
 						System.out.println("inicio divisao string");
 
@@ -79,7 +79,11 @@ public final class IdentificadorLayoutChain {
 							pesos.add(new BigDecimal(-1));
 						}
 					}
-					
+					else {
+						System.out.println("Não numero");
+						//pesos.add(new BigDecimal(-1));
+					}
+					/*
 					if(linha.contains("i") && (linha.contains("v") || linha.contains("w") || linha.contains("u"))) {
 						i++;
 						inicio = 0;
@@ -97,7 +101,9 @@ public final class IdentificadorLayoutChain {
 							System.out.println("Não numero");
 						}
 					}
+					*/
 				}
+				
 				return pesos;			
 		}else if(balanca == "Toledo 820") {
 			new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);

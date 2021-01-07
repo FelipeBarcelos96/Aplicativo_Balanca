@@ -36,7 +36,7 @@ public class BotaoView extends javax.swing.JFrame {
 	SerialPort serialPort =null;
 	private Boolean isAmbienteTeste=Boolean.TRUE;
         //JComboBox jcbCOM;
-        ImageIcon img = new ImageIcon("BalancaIcone.ico");
+        //ImageIcon img = new ImageIcon("BalancaIcone.ico");
         
         PainelControle controle;
         
@@ -55,7 +55,7 @@ public class BotaoView extends javax.swing.JFrame {
 	caixa.setFont(new Font("Verdana", Font.BOLD, 16));
 	caixa.setMargin(new Insets(10,10,10,10));
 	caixa.setBounds(0, 10, 700, 600);
-        this.setIconImage(img.getImage());
+        //this.setIconImage(img.getImage());
 	//setSize(700,600);
         this.controle = new PainelControle(this);
         setIcon();
@@ -88,7 +88,6 @@ public class BotaoView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Leitor de Balança");
         setBackground(new java.awt.Color(102, 0, 102));
-        setIconImage(img.getImage());
 
         jb.setText("Conectar");
         jb.addActionListener(new java.awt.event.ActionListener() {
@@ -129,22 +128,24 @@ public class BotaoView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(sp, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 45, Short.MAX_VALUE)
-                        .addComponent(jb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jb2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addContainerGap()
+                        .addComponent(sp))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jb, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb2)
+                        .addGap(18, 18, 18)
                         .addComponent(serialLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jcbCOM, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(balancaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(balancaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(balancaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -159,7 +160,7 @@ public class BotaoView extends javax.swing.JFrame {
                     .addComponent(balancaLabel)
                     .addComponent(balancaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addComponent(sp, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -276,6 +277,6 @@ public class BotaoView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\felip\\Documents\\NetBeansProjects\\Aplicativo_Balanca\\src\\main\\java\\br\\com\\sankhya\\view\\BalancaIcone.png"));
+       // this.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\felip\\Documents\\NetBeansProjects\\Aplicativo_Balanca\\src\\main\\java\\br\\com\\sankhya\\view\\BalancaIcone.png"));
     }
 }

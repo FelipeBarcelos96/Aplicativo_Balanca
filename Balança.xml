@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\target\Balança 1.1.jar</jar>
+  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\target\Balança 1.1.2.jar</jar>
   <outfile>C:\Users\felip\Desktop\Balança\Balança.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
@@ -13,10 +13,13 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\felip\Downloads\icon-marcaambiental-balanca.ico</icon>
+  <icon>C:\Users\felip\Downloads\Balanca.ico</icon>
+  <singleInstance>
+    <mutexName>Balança</mutexName>
+    <windowTitle>Balança</windowTitle>
+  </singleInstance>
   <classPath>
     <mainClass>br.com.sankhya.Principal.Botao</mainClass>
-    <cp>.</cp>
     <cp>.</cp>
   </classPath>
   <jre>
@@ -25,7 +28,7 @@
     <bundledJreAsFallback>false</bundledJreAsFallback>
     <minVersion>11</minVersion>
     <maxVersion>12</maxVersion>
-    <jdkPreference>preferJdk</jdkPreference>
+    <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
   </jre>
 </launch4jConfig>
