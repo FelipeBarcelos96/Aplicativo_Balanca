@@ -6,6 +6,11 @@
 package br.com.sankhya.ConnUtils;
 
 import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import br.com.sankhya.utils.ManipuladorDePropriedades;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortTimeoutException;
@@ -34,7 +39,7 @@ public class SerialComunications {
 		 
 		 if(true) {                     
 		 SerialPort serialPort =null;
-		 serialPort = new SerialPort(comn);
+		 serialPort = new SerialPort(comn);		 
                  
 	        try {
 				
@@ -57,6 +62,17 @@ public class SerialComunications {
 				        		SerialPort.BAUDRATE_4800,
 				        		SerialPort.DATABITS_7, 
 				        		1, 0);//Set params.
+			        }else if(balanca == "Default") {
+			        	try {
+							serialPort.setParams(
+									ManipuladorDePropriedades.getBaudrate(),
+									ManipuladorDePropriedades.getDataBits(), 
+									1, 0);
+						} catch (NumberFormatException | IOException e) {
+							// TODO Auto-generated catch block
+							new JOptionPane().showMessageDialog(new JFrame(),"Configurações de Baudrate/Databits Inválidas, favor revisar as Configurações!","Erro",JOptionPane.ERROR_MESSAGE);
+							e.printStackTrace();
+						}
 			        }
 			        
 			        byte[] buffer = null;

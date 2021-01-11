@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -30,8 +33,7 @@ public class EncontradorPesos {
     }
     
     public List<BigDecimal> pesosEncontrados(String bruta, String balanca){
-	
-    
+    	
 	
 	return IdentificadorLayoutChain.IdentificaLayout(balanca, bruta);
 }

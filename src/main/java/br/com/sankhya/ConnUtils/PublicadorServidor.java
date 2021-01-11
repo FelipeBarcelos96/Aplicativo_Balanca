@@ -53,18 +53,21 @@ public final class PublicadorServidor {
 		    				  + "\n15390000000vi0"
 		    				  + "\n15390000000wi0"
 		    				  + "\n15390000000zi0";	*/
-		    		  bruta = "i0 14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14900000000zi0  14910000000yi0  14920000000xi0  14940000000vi0  14960000000ti0  14980000000ri0  15000000000i0  15020000000i0  15030000000i0  15050000000}i0  15060000000|i0  15070000000{i0  15070000000{i0  15080000000zi0  15080000000zi0  15080000000zi0  15080000000z";
+		    		  // bruta = "000000000si0  14880000000si0  148800000";
+		    		 bruta = "i0 14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14900000000zi0  14910000000yi0  14920000000xi0  14940000000vi0  14960000000ti0  14980000000ri0  15000000000i0  15020000000i0  15030000000i0  15050000000}i0  15060000000|i0  15070000000{i0  15070000000{i0  15080000000zi0  15080000000zi0  15080000000zi0  15080000000z";
 		    	  }else{
-		    		   bruta = "ST,GS,+00000040 KG"
+		    		   /*bruta = "ST,GS,+00000040 KG"
 		    				  + "\nST,GS,+00000040 KG"
 		    				  + "\nST,GS,+00000040 KG"
 		    				  + "\nST,GS,+00000040 KG"
 		    				  + "\nST,GS,+00000040 KG"
-		    				  + "\nST,GS,+00000040 KG";  
+		    				  + "\nST,GS,+00000040 KG";*/
+		    		  bruta = "i0 14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14880000000si0  14900000000zi0  14910000000yi0  14920000000xi0  14940000000vi0  14960000000ti0  14980000000ri0  15000000000i0  15020000000i0  15030000000i0  15050000000}i0  15060000000|i0  15070000000{i0  15070000000{i0  15080000000zi0  15080000000zi0  15080000000zi0  15080000000z";
 		    	  }
 
 		      List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(bruta, balanca);
-                      //System.out.println(pesos);
+		      
+                      System.out.println(pesos);
 		      for(BigDecimal peso: pesos) {
 		    	  //System.out.println(peso);
 		    	  if(peso == new BigDecimal(-1)) {
@@ -93,6 +96,7 @@ public final class PublicadorServidor {
 		        }
 		        
 	            List<BigDecimal> pesos = EncontradorPesos.getInstance().pesosEncontrados(SerialComunications.getInstance().consutaSerial(comn,balanca), balanca);
+	            
 			      for(BigDecimal peso: pesos) {
 			    	  System.out.println(peso);
 			    	  caixa.setText("Peso recebido:"+ peso.toString()+" KG\n"+caixa.getText());

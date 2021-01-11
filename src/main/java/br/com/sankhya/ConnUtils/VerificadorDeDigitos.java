@@ -37,6 +37,7 @@ public class VerificadorDeDigitos {
 	     for (int i = 0; i < s.length(); i++) {
 	           char ch = s.charAt(i);
 	           if (ch < 48 || ch > 57)
+	        	   
 	                return i-1;
 	     }
 	     return -1;

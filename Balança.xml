@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
-  <headerType>gui</headerType>
-  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\target\Balança 1.1.2.jar</jar>
-  <outfile>C:\Users\felip\Desktop\Balança\Balança.exe</outfile>
+  <headerType>console</headerType>
+  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\Balança 1.2.jar</jar>
+  <outfile>C:\Users\felip\Desktop\Balança configurável\Balança.exe</outfile>
   <errTitle></errTitle>
-  <cmdLine></cmdLine>
+  <cmdLine>test</cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
