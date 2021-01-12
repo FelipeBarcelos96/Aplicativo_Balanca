@@ -124,9 +124,10 @@ public final class IdentificadorLayoutChain {
 			new JOptionPane().showMessageDialog(new JFrame(),"Layout Não Suportado ainda","Aviso",JOptionPane.WARNING_MESSAGE);
 			return null; 
 		}else if(balanca == "Default") {
-                    try {
+                    try {                    	
                         String valores = ManipuladorDeJavaScripts.getInstance().executaScript(ManipuladorArquivo.getInstance().leitor(ManipuladorDePropriedades.getProp().getProperty("funcao")), bruta);
-                        array = linhas.split(",");
+                       // System.out.println("DEBUG!: "+valores);
+                        array = valores.split(",");
                         for(String peso : array){
                             pesos.add(new BigDecimal(Integer.parseInt(peso)));
                         }

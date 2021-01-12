@@ -29,7 +29,7 @@ public class ManipuladorDeJavaScripts {
 			"return (er.test(str));\r\n" + 
 			"}";
 	
-	public String removeEspaçosVaziosDeArray = "function removeEspaçosVaziosDeArray(str) {"+
+	public String removeEspacosVaziosDeArray = "function removeEspacosVaziosDeArray(str) {"+
 			 "var filtered = str.filter(function (el) {\r\n" + 
 			 "  return el != '';\r\n" + 
 			 "});\r\n" + 
@@ -38,7 +38,7 @@ public class ManipuladorDeJavaScripts {
     
     private ManipuladorDeJavaScripts() {
         scripts.add(ehNumerico);
-        scripts.add(removeEspaçosVaziosDeArray);
+        scripts.add(removeEspacosVaziosDeArray);
     }
     
     public static ManipuladorDeJavaScripts getInstance() {

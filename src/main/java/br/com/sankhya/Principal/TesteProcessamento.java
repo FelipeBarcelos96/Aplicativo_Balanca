@@ -29,7 +29,7 @@ public class TesteProcessamento {
      * @throws IOException 
      */
     public static void main(String[] args) throws IOException {
-    	new Testes().teste3();
+    	new Testes().teste();
     }    
     
 }

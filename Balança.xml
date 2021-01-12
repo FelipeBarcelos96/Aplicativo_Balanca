@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>console</headerType>
-  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\Balança 1.2.jar</jar>
+  <jar>C:\Users\felip\Documents\NetBeansProjects\Aplicativo_Balanca\Balança 1.2.1.jar</jar>
   <outfile>C:\Users\felip\Desktop\Balança configurável\Balança.exe</outfile>
   <errTitle></errTitle>
   <cmdLine>test</cmdLine>

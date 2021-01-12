@@ -17,6 +17,7 @@ public class Botao {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    	//Boolean teste = Boolean.FALSE;
     	Boolean teste = Boolean.FALSE;
 
     	for(String arg : args) {
@@ -24,7 +25,7 @@ public class Botao {
     			teste = Boolean.TRUE;
     		}
     	}
-    //	teste = Boolean.TRUE;
+   
     	new PainelControle(teste);    	
     }
 
