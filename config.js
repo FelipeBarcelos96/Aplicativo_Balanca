@@ -5,6 +5,8 @@ linhas = removeEspacosVaziosDeArray(linhas);
 var inicio = 0;
 var fim = null;
 
+//Teste
+
 for (var i = 0; i < linhas.length; i++) {
 	
 	if(linhas[i].length > 6){

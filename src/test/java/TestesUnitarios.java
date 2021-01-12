@@ -1,5 +1,6 @@
-package br.com.sankhya.Principal;
 
+
+import br.com.sankhya.Principal.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import br.com.sankhya.scriptUtils.ManipuladorDeJavaScripts;
 import br.com.sankhya.utils.ManipuladorDePropriedades;
 import br.com.sankhya.utils.ManipuladorArquivo;
 
-public class Testes {
+public class TestesUnitarios {
 	
 	public void teste() throws IOException {    	
     	String baudrate; 
