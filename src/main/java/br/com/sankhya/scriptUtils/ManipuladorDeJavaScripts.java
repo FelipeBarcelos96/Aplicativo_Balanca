@@ -34,8 +34,8 @@ public class ManipuladorDeJavaScripts {
 			 "  return el != '';\r\n" + 
 			 "});\r\n" + 
 			 "return filtered;"
-			+"}";
-    
+			+"}";    
+	
     private ManipuladorDeJavaScripts() {
         scripts.add(ehNumerico);
         scripts.add(removeEspacosVaziosDeArray);
